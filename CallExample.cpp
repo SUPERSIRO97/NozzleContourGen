@@ -9,7 +9,7 @@ int main() {
     // ---------------------------
     // Define nozzle geometry
     // ---------------------------
-    double contraction_ratio = 1.6002;   // Area contraction ratio (chamber to throat)
+    double contraction_ratio = 1.6;      // Area contraction ratio (chamber to throat)
     double expansion_ratio   = 20.0;     // Area expansion ratio (throat to exit)
     double L_chamber         = 0.4613;   // Length of combustion chamber [m]
     double l_perc            = 0.80;     // Percentage of expansion cone length (used in divergent section)
@@ -41,15 +41,15 @@ int main() {
         {theta_e},               // Rao optimal divergent half-angle
 
         // Radii
-        {},                           // r1_values left empty (ignored)
-        {1.5 * r_throat, r_throat},   // r2_values: optional secondary radii
+        {},                           // r1_values: primary convergent radii, left empty (ignored)
+        {1.5 * r_throat, r_throat},   // r2_values: secondary convergent radii
         {0.382 * r_throat, r_throat}, // r3_values: divergent section radii
 
         // Numerical settings (optional, default N_r = 1)
         // N_r,                   // Could be uncommented to set resolution explicitly
 
-        // Output folder path (optional)
-        // "C:/Users/.../Desktop/.../Nozzle_Contours"  // Can specify where CSVs are saved
+        // Output folder path (optional, default current directory)
+        // "C:/Users/Name/Desktop/Nozzle_Contours"  // Path where to save counturs
     );
 
     // ---------------------------
